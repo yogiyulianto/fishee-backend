@@ -1,0 +1,13 @@
+version: 3.4
+services:
+  webserver:
+    container_name: webserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    volumes:
+      - ./www:/var/www/html:Z
+    ports:
+      - 8000:80
